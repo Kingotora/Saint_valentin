@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 3. Délai festif
         setTimeout(() => {
             window.location.href = "programme.html";
-        }, 8000); // 8 secondes pour profiter de la célébration
+        }, 6000); // 8 secondes pour profiter de la célébration
     });
 });
+
