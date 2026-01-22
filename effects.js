@@ -104,14 +104,7 @@ function createEmojiRain() {
 
 // ==================== LOVE MESSAGES ====================
 const loveMessages = [
-    "Chaque moment avec toi est un trésor 💎",
-    "Tu illumines mes journées comme personne 🌟",
-    "Mon cœur bat plus fort quand tu es là 💓",
-    "Avec toi, chaque jour est une aventure 🗺️",
-    "Tu es ma personne préférée au monde 🌍",
-    "Merci d'être exactement comme tu es 💖",
-    "Tu rends ma vie tellement meilleure ✨",
-    "Je ne me lasse jamais de ton sourire 😊"
+    "Je t'aime mon chat",
 ];
 
 function initLoveMessages() {
@@ -166,3 +159,4 @@ function createFloatingHearts() {
 if (document.getElementById('floating-hearts')) {
     createFloatingHearts();
 }
+
