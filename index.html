@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Une question importante...</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS Spécifique pour fixer le layout */
+        .buttons-container {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .btn-no-wrapper {
+            width: 140px;
+            height: 50px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <h1>Veux-tu être ma Valentine ? 🌹</h1>
+
+            <!-- Messages d'amour rotatifs -->
+            <div class="love-message" id="love-message">
+                <p></p>
+            </div>
+
+            <div class="buttons-container">
+                <button id="btn-yes" class="btn btn-yes">OUI !</button>
+
+                <!-- Wrapper pour éviter que le layout ne saute quand le bouton part en fixed -->
+                <div class="btn-no-wrapper">
+                    <button id="btn-no" class="btn btn-no">Non</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GIF CHAT DANSE (Caché par défaut) -->
+    <div id="cat-celebration" class="cat-celebration">
+        <!-- Grid de Chats Dansants -->
+        <div class="cats-grid">
+            <div class="dancing-emoji emoji-1">🐱</div>
+            <div class="dancing-emoji emoji-2">😸</div>
+            <div class="dancing-emoji emoji-3">😻</div>
+            <div class="dancing-emoji emoji-4">🎉</div>
+            <div class="dancing-emoji emoji-5">🐱</div>
+            <div class="dancing-emoji emoji-6">💃</div>
+            <div class="dancing-emoji emoji-7">😸</div>
+            <div class="dancing-emoji emoji-8">🎊</div>
+            <div class="dancing-emoji emoji-9">😻</div>
+        </div>
+
+        <!-- Emoji Rain -->
+        <div class="emoji-rain" id="emoji-rain"></div>
+
+        <div class="celebration-message">
+            <h2>ELLE A DIT OUI ! 🎉</h2>
+            <p class="celebration-subtitle">La meilleure décision de ta vie 💖</p>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="effects.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C'était sûr ! ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="hidden-overflow">
+
+    <!-- QUIZ MODAL -->
+    <div id="quiz-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">👮‍♂️ Contrôle de sécurité</h2>
+            <p>Veuillez prouver que vous êtes bien ma Valentine.</p>
+            <p class="question" style="margin-top: 20px; font-weight: bold; color: var(--primary-color);">
+                Question : Qu'est-ce que j'aime le plus au monde ?
+            </p>
+            <input type="text" id="quiz-input" placeholder="Tapez votre réponse...">
+            <button id="quiz-submit" class="btn btn-yes"
+                style="font-size: 1rem; padding: 0.8rem 2rem;">Vérifier</button>
+            <p id="error-msg" style="color: red; margin-top: 10px; display: none;">Accès refusé. Intrus détecté ! 🚨</p>
+            <p style="font-size: 0.8rem; color: #888; margin-top: 20px;">(Indice: "Mes p...")</p>
+        </div>
+    </div>
+
+
+
+    <main id="main-content"
+        style="filter: blur(5px); transition: filter 0.5s; padding-top: 50px; padding-bottom: 150px;">
+
+        <!-- HEADER -->
+        <section class="success-message">
+            <div class="container" style="text-align: center;">
+                <h1 style="font-size: 3rem; margin-bottom: 2rem; animation: heartbeat 2s infinite;">Bon choix ! 💖</h1>
+                <p style="font-size: 1.5rem;">C'était le seul, mais c'était le bon.<br>Prépare-toi pour une journée
+                    incroyable.</p>
+
+                <!-- Countdown -->
+                <div class="countdown-container" style="margin-top: 3rem;">
+                    <h3>Plus que... ⏰</h3>
+                    <div id="countdown" class="countdown">
+                        <div class="time-box">
+                            <span id="days" class="time-value">00</span>
+                            <span class="time-label">Jours</span>
+                        </div>
+                        <div class="time-box">
+                            <span id="hours" class="time-value">00</span>
+                            <span class="time-label">Heures</span>
+                        </div>
+                        <div class="time-box">
+                            <span id="minutes" class="time-value">00</span>
+                            <span class="time-label">Minutes</span>
+                        </div>
+                        <div class="time-box">
+                            <span id="seconds" class="time-value">00</span>
+                            <span class="time-label">Secondes</span>
+                        </div>
+                    </div>
+                    <p id="unlock-status" style="margin-top: 1.5rem; font-size: 1.1rem; font-weight: 600;"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAMME -->
+        <section id="programme" class="bg-white">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 3rem;">Le Programme de la journée</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item left" data-unlock="20">
+                        <div class="content locked">
+                            <span class="unlock-icon">🔒</span>
+                            <span class="time">18:00</span>
+                            <h3>Le début des festivités 🥂</h3>
+                            <p class="locked-text">Débloqué dans <span class="days-left"></span> jours...</p>
+                            <p class="unlocked-text" style="display:none;">Je passe te chercher. Tenue chic exigée (mais
+                                confortable, on ne sait jamais...).</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right" data-unlock="15">
+                        <div class="content locked">
+                            <span class="unlock-icon">🔒</span>
+                            <span class="time">19:30</span>
+                            <h3>Dîner aux Chandelles 🍝</h3>
+                            <p class="locked-text">Débloqué dans <span class="days-left"></span> jours...</p>
+                            <p class="unlocked-text" style="display:none;">Réservation dans ton resto préféré. Au menu :
+                                Amour, Gloire et Beauté (et surement des pâtes).</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left" data-unlock="10">
+                        <div class="content locked">
+                            <span class="unlock-icon">🔒</span>
+                            <span class="time">21:30</span>
+                            <h3>Balade Nocturne 🌙</h3>
+                            <p class="locked-text">Débloqué dans <span class="days-left"></span> jours...</p>
+                            <p class="unlocked-text" style="display:none;">Petite promenade digestive sous les étoiles
+                                pour refaire le monde.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right" data-unlock="5">
+                        <div class="content locked">
+                            <span class="unlock-icon">🔒</span>
+                            <span class="time">22:30</span>
+                            <h3>Surprise Finale 🎁</h3>
+                            <p class="locked-text">Débloqué dans <span class="days-left"></span> jours...</p>
+                            <p class="unlocked-text" style="display:none;">Un petit cadeau t'attend... mais chut, c'est
+                                un secret.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="effects.js"></script>
+    <script>
+        // QUIZ
+        const modal = document.getElementById('quiz-modal');
+        const mainContent = document.getElementById('main-content');
+        const submitBtn = document.getElementById('quiz-submit');
+        const input = document.getElementById('quiz-input');
+        const errorMsg = document.getElementById('error-msg');
+
+        function checkAnswer() {
+            const answer = input.value.toLowerCase().trim();
+            if (answer.includes('pied') || answer.includes('pieds')) {
+                modal.style.opacity = '0';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    mainContent.style.filter = 'none';
+                    // Quiz validé
+                }, 500);
+            } else {
+                errorMsg.style.display = 'block';
+                input.style.borderColor = 'red';
+                modal.querySelector('.modal-content').animate([
+                    { transform: 'translateX(0)' },
+                    { transform: 'translateX(-10px)' },
+                    { transform: 'translateX(10px)' },
+                    { transform: 'translateX(0)' }
+                ], { duration: 300 });
+            }
+        }
+
+        submitBtn.addEventListener('click', checkAnswer);
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkAnswer();
+        });
+
+
+
+        // CONFETTIS
+        window.addEventListener('load', () => {
+            input.focus();
+
+            const duration = 3000;
+            const animationEnd = Date.now() + duration;
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+            const randomInRange = (min, max) => Math.random() * (max - min) + min;
+
+            const interval = setInterval(function () {
+                const timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) return clearInterval(interval);
+
+                const particleCount = 50 * (timeLeft / duration);
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+
+            // Timeline animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
+        });
+    </script>
+</body>
+
+</html>
