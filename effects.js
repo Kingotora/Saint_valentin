@@ -104,7 +104,7 @@ function createEmojiRain() {
 
 // ==================== LOVE MESSAGES ====================
 const loveMessages = [
-    "Je t'aime mon chat 🐱",
+    "Je t'aime mon chat 🐱"
 ];
 
 function initLoveMessages() {
@@ -159,5 +159,6 @@ function createFloatingHearts() {
 if (document.getElementById('floating-hearts')) {
     createFloatingHearts();
 }
+
 
 
