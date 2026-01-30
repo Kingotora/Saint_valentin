@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnNo.style.top = `${newY}px`;
         btnNo.style.zIndex = '1000';
 
-        const texts = ["Raté !", "Essaie encore", "Tu ne m'auras pas", "Impossible", "Même pas en rêve", "Allez clique sur Oui", "Trop lent !", "T'as cru ?", "Force pas...", "Non mais sérieux ?", "Button not found 404", "Je suis timide", "Nope", "Attrape-moi si tu peux"];
+        const texts = ["Raté !", "Essaie encore", "Flop", "Impossible", "BAHHAHAHAHA", "Allez clique sur Oui", "Naze", "T'as cru ?", "Force pas..."];
 
         if (Math.random() > 0.3) {
             btnNo.innerText = texts[Math.floor(Math.random() * texts.length)];
@@ -50,10 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // 3. Délai festif
+        // 3. Délai festif + Fade transition
         setTimeout(() => {
-            window.location.href = "programme.html";
-        }, 6000); // 8 secondes pour profiter de la célébration
+            // Add fade-out effect
+            document.body.classList.add('page-fade-out');
+
+            // Wait for fade animation to complete, then navigate
+            setTimeout(() => {
+                window.location.href = "programme.html";
+            }, 500);
+        }, 4000); // 6 secondes pour profiter de la célébration
     });
 });
 

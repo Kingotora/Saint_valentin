@@ -41,7 +41,9 @@
         <section class="success-message">
             <div class="container" style="text-align: center;">
                 <h1 style="font-size: 3rem; margin-bottom: 2rem; animation: heartbeat 2s infinite;">Bon choix ! 💖</h1>
-                <p style="font-size: 1.5rem;">C'était le seul, mais c'était le bon.</p>
+                <p
+                    style="font-size: 1.8rem; color: var(--primary-color); font-family: var(--font-heading); font-style: italic; margin-bottom: 1rem;">
+                    Je t'aime mon chat 🐱</p>
 
                 <!-- Countdown -->
                 <div class="countdown-container" style="margin-top: 3rem;">
@@ -72,47 +74,39 @@
         <!-- PROGRAMME -->
         <section id="programme" class="bg-white">
             <div class="container">
-                <h2 style="text-align: center; margin-bottom: 3rem;">Le Programme de la journée</h2>
+                <h2 style="text-align: center; margin-bottom: 3rem;">Le Programme du Weekend 💕</h2>
 
                 <div class="timeline">
-                    <div class="timeline-item left" data-unlock="20">
+                    <div class="timeline-item left" data-unlock="15">
                         <div class="content locked">
                             <span class="unlock-icon">🔒</span>
-                            <span class="time">18:00</span>
-                            <h3>Le début des festivités 🥂</h3>
+                            <span class="time">Vendredi 13 Février</span>
+                            <h3>On part en week-end !</h3>
                             <p class="locked-text">Débloqué dans <span class="days-left"></span> jours...</p>
-                            <p class="unlocked-text" style="display:none;">Je passe te chercher. Tenue chic exigée (mais
-                                confortable, on ne sait jamais...).</p>
+                            <p class="unlocked-text" style="display:none;">Vendredi 13 Février, je te veux à 17H à Ablon
+                                avec des affaires pour le Weekend.</p>
                         </div>
                     </div>
-                    <div class="timeline-item right" data-unlock="15">
+                    <div class="timeline-item right" data-unlock="10">
                         <div class="content locked">
                             <span class="unlock-icon">🔒</span>
-                            <span class="time">19:30</span>
-                            <h3>Dîner aux Chandelles 🍝</h3>
+                            <span class="time">Weekend complet</span>
+                            <h3>Au Programme 🏨</h3>
                             <p class="locked-text">Débloqué dans <span class="days-left"></span> jours...</p>
-                            <p class="unlocked-text" style="display:none;">Réservation dans ton resto préféré. Au menu :
-                                Amour, Gloire et Beauté (et surement des pâtes).</p>
+                            <p class="unlocked-text" style="display:none;">Hébergement avec vue sur le vieux bassin ❤️
+                                Au programme : balades dans les ruelles pittoresques, visite du port, restaurants avec
+                                vue sur la mer, et plein de moments rien qu'à nous deux.</p>
                         </div>
                     </div>
-                    <div class="timeline-item left" data-unlock="10">
+                    <div class="timeline-item left" data-unlock="5">
                         <div class="content locked">
                             <span class="unlock-icon">🔒</span>
-                            <span class="time">21:30</span>
-                            <h3>Balade Nocturne 🌙</h3>
+                            <span class="time">Samedi soir</span>
+                            <h3>Surprise Spéciale 🎁</h3>
                             <p class="locked-text">Débloqué dans <span class="days-left"></span> jours...</p>
-                            <p class="unlocked-text" style="display:none;">Petite promenade digestive sous les étoiles
-                                pour refaire le monde.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right" data-unlock="5">
-                        <div class="content locked">
-                            <span class="unlock-icon">🔒</span>
-                            <span class="time">22:30</span>
-                            <h3>Surprise Finale 🎁</h3>
-                            <p class="locked-text">Débloqué dans <span class="days-left"></span> jours...</p>
-                            <p class="unlocked-text" style="display:none;">Un petit cadeau t'attend... mais chut, c'est
-                                un secret.</p>
+                            <p class="unlocked-text" style="display:none;">Dîner romantique dans un restaurant
+                                gastronomique avec vue sur le port illuminé... et peut-être une autre petite surprise 😉
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -124,21 +118,35 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="effects.js"></script>
     <script>
-        // QUIZ
+        // QUIZ with localStorage persistence
         const modal = document.getElementById('quiz-modal');
         const mainContent = document.getElementById('main-content');
         const submitBtn = document.getElementById('quiz-submit');
         const input = document.getElementById('quiz-input');
         const errorMsg = document.getElementById('error-msg');
 
+        // Check if quiz was already validated
+        function checkQuizStatus() {
+            const quizValidated = localStorage.getItem('valentineQuizValidated');
+            if (quizValidated === 'true') {
+                // Quiz already done, hide modal immediately
+                modal.style.display = 'none';
+                mainContent.style.filter = 'none';
+                return true;
+            }
+            return false;
+        }
+
         function checkAnswer() {
             const answer = input.value.toLowerCase().trim();
             if (answer.includes('pied') || answer.includes('pieds')) {
+                // Save validation state
+                localStorage.setItem('valentineQuizValidated', 'true');
+
                 modal.style.opacity = '0';
                 setTimeout(() => {
                     modal.style.display = 'none';
                     mainContent.style.filter = 'none';
-                    // Quiz validé
                 }, 500);
             } else {
                 errorMsg.style.display = 'block';
@@ -152,16 +160,23 @@
             }
         }
 
-        submitBtn.addEventListener('click', checkAnswer);
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') checkAnswer();
-        });
+        // Check status on page load
+        if (!checkQuizStatus()) {
+            // Quiz not done yet, set up listeners
+            submitBtn.addEventListener('click', checkAnswer);
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') checkAnswer();
+            });
+        }
 
 
 
         // CONFETTIS
         window.addEventListener('load', () => {
-            input.focus();
+            // Only focus input if quiz is visible
+            if (modal.style.display !== 'none') {
+                input.focus();
+            }
 
             const duration = 3000;
             const animationEnd = Date.now() + duration;

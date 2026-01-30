@@ -67,10 +67,10 @@ function checkUnlocks(daysRemaining) {
 
     // Update status
     if (unlockStatus) {
-        if (unlockedCount === 4) {
+        if (unlockedCount === 3) {
             unlockStatus.innerHTML = '✨ <strong>Toutes les activités débloquées !</strong> 🎊';
         } else if (nextUnlockDays !== null) {
-            unlockStatus.innerHTML = `🔓 <strong>${unlockedCount}/4 activités</strong> • Prochain dans <strong>${nextUnlockDays} jour${nextUnlockDays > 1 ? 's' : ''}</strong>`;
+            unlockStatus.innerHTML = `🔓 <strong>${unlockedCount}/3 activités</strong> • Prochain dans <strong>${nextUnlockDays} jour${nextUnlockDays > 1 ? 's' : ''}</strong>`;
         }
     }
 }
@@ -104,7 +104,7 @@ function createEmojiRain() {
 
 // ==================== LOVE MESSAGES ====================
 const loveMessages = [
-    "Je t'aime mon chat 🐱"
+    // Message moved to programme.html
 ];
 
 function initLoveMessages() {
@@ -158,6 +158,18 @@ function createFloatingHearts() {
 
 if (document.getElementById('floating-hearts')) {
     createFloatingHearts();
+
+    // Add parallax effect to floating hearts
+    let scrollY = 0;
+    window.addEventListener('scroll', () => {
+        scrollY = window.scrollY;
+        const hearts = document.querySelectorAll('.floating-heart');
+        hearts.forEach((heart, index) => {
+            const speed = 0.3 + (index % 3) * 0.15; // Different speeds for depth
+            const yPos = -(scrollY * speed);
+            heart.style.transform = `translateY(${yPos}px)`;
+        });
+    });
 }
 
 
