@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnNo.style.top = `${newY}px`;
         btnNo.style.zIndex = '1000';
 
-        const texts = ["Raté !", "Essaie encore", "Flop", "Impossible", "BAHHAHAHAHA", "Allez clique sur Oui", "Naze", "T'as cru ?", "Force pas..."];
+        const texts = ["bouuuhhhh", "Essaie encore", "Flop", "Impossible", "BAHHAHAHAHA", "Clique sur Oui", "Naze", "Force pas frere"];
 
         if (Math.random() > 0.3) {
             btnNo.innerText = texts[Math.floor(Math.random() * texts.length)];
@@ -62,4 +62,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4000); // 6 secondes pour profiter de la célébration
     });
 });
+
 
